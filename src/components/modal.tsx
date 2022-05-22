@@ -8,9 +8,6 @@ const Div = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  position: absolute;
-  top: 0;
 `;
 const ModalDiv = styled.div`
   width: 30%;
@@ -49,19 +46,12 @@ const Contents = styled.div`
   flex-direction: column;
   margin-top: 40px;
 `;
-interface Close {
-  state: boolean;
-}
+
 function Modal() {
-  const [close, setClose] = useState(true);
-  function onClose() {
-    setClose(false);
-  }
   return (
     <Div>
       <ModalDiv>
         <Title>로그인</Title>
-        <Cancel>취소</Cancel>
         <Contents>
           <Logo src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
           <LoginButton>Login</LoginButton>
