@@ -42,12 +42,11 @@ const HeaderDiv = styled.div`
 const Logo = styled.div`
   margin: 0 auto;
   width: 70%;
-  height: 10%;
+  height: 15%;
   color: white;
   font-weight: bold;
   font-size: 1.8rem;
-  margin-top: 25px;
-  background-color: green;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,6 +57,7 @@ const Profile = styled.div`
   height: 13vh;
   background-color: lavender;
   margin: 20px auto;
+  margin-top: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,13 +220,20 @@ const GithubContribution = styled.div`
 
 function MyPage() {
   const [ModalState, setModalState] = useState(true);
-
+  function onModalClose() {
+    setModalState(false);
+  }
   return (
     <Div className="Home">
       <ContentDiv>
         <NavigationDiv>
           <HeaderDiv>
-            <Logo>Logo</Logo>
+            <Logo>
+              <img
+                style={{ width: "100%", height: "100%" }}
+                src={require("../../image/logo.png")}
+              />
+            </Logo>
             <Profile>프로필</Profile>
             <WhiteStrike />
             <GroudDiv>
@@ -267,7 +274,14 @@ function MyPage() {
           <GithubContribution />
         </MainDiv>
       </ContentDiv>
-      {ModalState ? <Modal></Modal> : null}
+      {ModalState ? (
+        <div
+          style={{ zIndex: "1000", position: "absolute", top: 0 }}
+          onClick={onModalClose}
+        >
+          <Modal></Modal>
+        </div>
+      ) : null}
     </Div>
   );
 }
