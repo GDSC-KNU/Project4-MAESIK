@@ -8,6 +8,9 @@ const Div = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
 `;
 const ModalDiv = styled.div`
   width: 30%;
@@ -30,7 +33,7 @@ const Logo = styled.img`
   height: 40%;
   text-align: center;
 `;
-const LoginButton = styled.button`
+const InviteButton = styled.button`
   width: 10vw;
   height: 7vh;
   background-color: #3ac693;
@@ -47,18 +50,28 @@ const Contents = styled.div`
   margin-top: 40px;
 `;
 
-function Modal() {
+const Input = styled.input``;
+
+interface CloseModal {
+  close: Function;
+}
+
+function InviteModal(props: CloseModal) {
+  const [githubId, setGithubId] = useState("");
+  function onClose() {
+    props.close();
+  }
   return (
     <Div>
       <ModalDiv>
-        <Title>로그인</Title>
+        <Title>그룹원 초대</Title>
         <Contents>
-          <Logo src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
-          <LoginButton>Login</LoginButton>
+          <Input name="githubId"></Input>
+          <InviteButton onClick={onClose}>Invite</InviteButton>
         </Contents>
       </ModalDiv>
     </Div>
   );
 }
 
-export default Modal;
+export default InviteModal;

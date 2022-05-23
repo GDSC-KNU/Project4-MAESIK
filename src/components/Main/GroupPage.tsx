@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // import {faRotateRight} from "@fortawesome/free-solid-svg-icons"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import InviteModal from "../modal/inviteModal";
 
 const Div = styled.div`
   width: 100vw;
@@ -13,7 +14,7 @@ const Div = styled.div`
 `;
 const ContentDiv = styled.div`
   width: 95%;
-  height: 85%;
+  height: 90%;
   background-color: white;
   border-radius: 12px;
   display: flex;
@@ -96,7 +97,7 @@ const Member = styled.div`
   padding-top: 20px;
 `;
 const InfoDiv = styled.div`
-  width: 76%;
+  width: 85%;
 `;
 const InfoTitle = styled.div`
   text-align: center;
@@ -135,6 +136,16 @@ const RefreshButton = styled.button`
   right: 10%;
   box-shadow: 1px 1px 1px 1px gray;
 `;
+const InviteButton = styled.button`
+  background-color: #94d8c4;
+  width: 120px;
+  height: 50px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  position: fixed;
+  right: 25%;
+  box-shadow: 1px 1px 1px 1px gray;
+`;
 const Ranking = styled.div`
   margin: 25px auto;
   width: 85%;
@@ -163,9 +174,18 @@ const CommitData = styled.div`
   width: 90%;
   margin: 15px auto;
 `;
+
 function GroupPage() {
+  const [invite, setInvite] = useState(false);
+  function onInviteModal() {
+    setInvite(true);
+  }
+  function onCloseInviteModal() {
+    setInvite(false);
+  }
   return (
     <Div className="App">
+      {invite ? <InviteModal close={onCloseInviteModal}></InviteModal> : null}
       <ContentDiv>
         <HeaderDiv>
           <Logo>
@@ -184,7 +204,7 @@ function GroupPage() {
           </GroudDiv>
           <AddButton>그룹 생성</AddButton>
         </HeaderDiv>
-        <MemberDiv>
+        {/* <MemberDiv>
           <MemberList>그룹원 목록</MemberList>
           <Member style={{ color: "white" }}>강종연</Member>
           <Member>권용준</Member>
@@ -193,7 +213,7 @@ function GroupPage() {
           <Member>김현지</Member>
           <Member>이현지</Member>
           <Member>주지호</Member>
-        </MemberDiv>
+        </MemberDiv> */}
         <InfoDiv>
           <InfoTitle>그룹 정보</InfoTitle>
           <InfoContent>
@@ -203,6 +223,7 @@ function GroupPage() {
               <br />
               <span style={{ color: "#7B7B7B" }}>그룹소개</span>
             </GroupName>
+            <InviteButton onClick={onInviteModal}>Invite</InviteButton>
             <RefreshButton>Refresh</RefreshButton>
           </InfoContent>
           <Ranking>

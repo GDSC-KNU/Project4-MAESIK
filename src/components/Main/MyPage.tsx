@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Modal from "../modal";
+import Modal from "../modal/loginModal";
 
 const Div = styled.div`
   width: 100vw;
@@ -225,6 +225,7 @@ function MyPage() {
   }
   return (
     <Div className="Home">
+      {ModalState ? <Modal close={onModalClose}></Modal> : null}
       <ContentDiv>
         <NavigationDiv>
           <HeaderDiv>
@@ -274,14 +275,6 @@ function MyPage() {
           <GithubContribution />
         </MainDiv>
       </ContentDiv>
-      {ModalState ? (
-        <div
-          style={{ zIndex: "1000", position: "absolute", top: 0 }}
-          onClick={onModalClose}
-        >
-          <Modal></Modal>
-        </div>
-      ) : null}
     </Div>
   );
 }
