@@ -91,6 +91,11 @@ const InviteButton = styled.button`
   position: fixed;
   right: 25%;
   box-shadow: 1px 1px 1px 1px gray;
+  cursor: pointer;
+  :hover {
+    background-color: #679789;
+    color: white;
+  }
 `;
 
 const CommitDays = styled.div`

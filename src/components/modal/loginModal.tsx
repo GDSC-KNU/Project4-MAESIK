@@ -26,7 +26,6 @@ const Title = styled.div`
   font-size: 35px;
   font-weight: light;
 `;
-const Cancel = styled.h1``;
 
 const Logo = styled.img`
   width: 40%;
@@ -41,6 +40,11 @@ const LoginButton = styled.button`
   color: white;
   font-size: 20px;
   margin-top: 10px;
+  cursor: pointer;
+  :hover {
+    background-color: #679789;
+    color: white;
+  }
 `;
 const Contents = styled.div`
   display: flex;

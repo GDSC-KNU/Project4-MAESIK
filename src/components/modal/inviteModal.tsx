@@ -23,10 +23,9 @@ const Title = styled.div`
   border-bottom: black 1px solid;
   text-align: center;
   padding: 20px 0;
-  font-size: 35px;
+  font-size: 1.8rem;
   font-weight: light;
 `;
-const Cancel = styled.h1``;
 
 const Logo = styled.img`
   width: 40%;
@@ -41,6 +40,11 @@ const InviteButton = styled.button`
   color: white;
   font-size: 20px;
   margin-top: 10px;
+  cursor: pointer;
+  :hover {
+    background-color: #679789;
+    color: white;
+  }
 `;
 const Contents = styled.div`
   display: flex;
@@ -50,7 +54,11 @@ const Contents = styled.div`
   margin-top: 40px;
 `;
 
-const Input = styled.input``;
+const Input = styled.input`
+  width: 70%;
+  height: 30px;
+  margin-bottom: 10px;
+`;
 
 interface CloseModal {
   close: Function;
