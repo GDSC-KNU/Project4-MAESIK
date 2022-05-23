@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import InviteModal from "../modal/inviteModal";
 import SideBar from "../modules/SideBar";
 import RankInfo from "../modules/RankInfo";
 import RefreshBtn from "../modules/RefreshBtn";
@@ -33,6 +34,31 @@ const InfoTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  justify-content: center;
+`;
+
+const MemberList = styled.div`
+  color: white;
+  font-size: 1.5rem;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  border-bottom: solid 1px white;
+  width: 85%;
+  margin: 0 auto;
+`;
+
+const Member = styled.div`
+  color: #b5b5b5;
+  font-size: 1.3rem;
+  padding-top: 20px;
+`;
+const InfoDiv = styled.div`
+  width: 85%;
+`;
+const InfoTitle = styled.div`
+  text-align: center;
+  font-size: 1.7rem;
+  padding: 35px 0;
 `;
 const InfoContent = styled.div`
   width: 80%;
@@ -61,6 +87,23 @@ const GroupProfile_ = styled.div`
 const GroupName = styled.div`
   font-size: 1.2rem;
   margin-left: 15px;
+`;
+
+const InviteButton = styled.button`
+  background-color: #94d8c4;
+  width: 120px;
+  height: 50px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  position: fixed;
+  right: 25%;
+  box-shadow: 1px 1px 1px 1px gray;
+`;
+
+const CommitDays = styled.div`
+  position: fixed;
+  right: 10%;
+  font-size: 1.2rem;
   h1 {
     font-size: 20px;
   }
@@ -83,9 +126,18 @@ const CommitData = styled.div`
   width: 90%;
   margin: 15px auto;
 `;
+
 function GroupPage() {
+  const [invite, setInvite] = useState(false);
+  function onInviteModal() {
+    setInvite(true);
+  }
+  function onCloseInviteModal() {
+    setInvite(false);
+  }
   return (
     <Div className="App">
+      {invite ? <InviteModal close={onCloseInviteModal}></InviteModal> : null}
       <ContentDiv>
         <SideBar />
         <InfoDiv>
@@ -96,6 +148,7 @@ function GroupPage() {
               <h1>그룹명</h1>
               <p>그룹소개</p>
             </GroupName>
+            <InviteButton onClick={onInviteModal}>Invite</InviteButton>
             <RefreshBtn />
           </InfoContent>
           <BlackStrike />
@@ -144,7 +197,6 @@ function GroupPage() {
               김나형(lamknh)님이 KNU GDSC 레포에 커밋을 올렸습니다.{" "}
             </CommitData>
             <div style={{ textAlign: "right" }}>
-              {/* <FontAwesomeIcon style={{color:'white',margin:'0 20px 15px 0'}} icon={faRotateRight} /> */}
             </div>
           </CommitDatas>
         </InfoDiv>
