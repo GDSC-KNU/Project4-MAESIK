@@ -52,14 +52,7 @@ const Member = styled.div`
   font-size: 1.3rem;
   padding-top: 20px;
 `;
-const InfoDiv = styled.div`
-  width: 85%;
-`;
-const InfoTitle = styled.div`
-  text-align: center;
-  font-size: 1.7rem;
-  padding: 35px 0;
-`;
+
 const InfoContent = styled.div`
   width: 80%;
   height: 24%;
@@ -196,8 +189,7 @@ function GroupPage() {
             <CommitData>
               김나형(lamknh)님이 KNU GDSC 레포에 커밋을 올렸습니다.{" "}
             </CommitData>
-            <div style={{ textAlign: "right" }}>
-            </div>
+            <div style={{ textAlign: "right" }}></div>
           </CommitDatas>
         </InfoDiv>
       </ContentDiv>
