@@ -5,6 +5,8 @@ import "./App.css";
 import MyPage from "./Main/MyPage";
 import GroupPage from "./Main/GroupPage";
 
+import OAuth2RedirectHandler from "../components/oauth2/OAuth2RedirectHandler";
+
 function App() {
   return (
     <>
@@ -13,6 +15,10 @@ function App() {
         <Routes>
           <Route path="/" element={<MyPage />} />
           <Route path="/group" element={<GroupPage />} />
+          <Route
+            path="/oauth2/redirect"
+            element={OAuth2RedirectHandler}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
