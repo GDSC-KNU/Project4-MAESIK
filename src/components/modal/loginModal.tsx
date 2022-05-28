@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { GITHUB_AUTH_URL, ACCESS_TOKEN } from "../Login/oauth_url";
 
 const Div = styled.div`
   width: 100vw;
@@ -61,7 +62,9 @@ interface CloseModal {
 function Modal(props: CloseModal) {
   function onClose() {
     props.close();
+    window.location.href = GITHUB_AUTH_URL;
   }
+
   return (
     <Div>
       <ModalDiv>
