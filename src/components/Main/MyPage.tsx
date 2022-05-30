@@ -72,7 +72,11 @@ const GithubContribution = styled.div`
   height: 30%;
   width: 80%;
   margin: 0vh auto;
-  background-color: lightgrey;
+  // background-color: lightgrey;
+  img {
+    height: 80%;
+    width: 100%;
+  }
 `;
 
 function MyPage() {
@@ -97,7 +101,9 @@ function MyPage() {
           </MainUpperDiv>
           <BlackStrike />
           <RankInfo />
-          <GithubContribution />
+          <GithubContribution>
+            <img src="https://ghchart.rshah.org/lamknh"></img>
+          </GithubContribution>
         </MainDiv>
       </ContentDiv>
     </Div>
